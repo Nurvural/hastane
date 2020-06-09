@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <div class="col-md-7">
+        <h:form id="oda-form">
+            <div class="form-group">
+                <label for="selectedHemsire">HEMSIRE</label>
+                <h:selectOneMenu styleClass="custom-select" id="selectedHemsire" value="#{odaController.oda.hemsire}" converter="hemsireConverter">
+                    <f:selectItems value="#{odaController.hemsireList}" var="hemsire" itemValue="#{hemsire}" itemLabel="#{hemsire.hemsire_name}" />
+                </h:selectOneMenu>
+            </div>
+            <div class="form-group">
+                <label for="inputName">Oda No</label>
+                <h:inputText styleClass="form-control" value="#{odaController.oda.odano}"  validator="#{odaController.validate}" />
+                <h:message for="inputName" style="color: #B0A3D1" />
+
+            </div>
+            <div class="form-group">
+                <label for="inputtipi">Oda Tipi</label>
+                <h:inputText styleClass="form-control" value="#{odaController.oda.oda_tipi}"  validator="#{odaController.validate}" />
+                <h:message for="inputtipi" style="color: #B0A3D1" />
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="btn-group">
+                    <h:commandButton rendered="#{loginController.user.c != 0}" styleClass="btn btn-primary" action="#{odaController.create}" value="Create">
+                        <f:ajax  execute="oda-form" render="oda-form oda-table" />
+                    </h:commandButton>
+                    <h:commandButton rendered="#{loginController.user.u != 0}" styleClass="btn btn-info" action="#{odaController.update}" value="Update">
+                        <f:ajax  execute="oda-form" render="oda-form oda-table" />
+                    </h:commandButton>
+
+                    <h:commandButton rendered="#{loginController.user.r != 0}" styleClass="btn btn-secondary" value="Clear form" action="#{odaController.clearForm}">
+                        <f:ajax execute="@this" render="oda-form"/>
+                    </h:commandButton>
+
+                    <h:commandButton rendered="#{loginController.user.d != 0}" styleClass="btn btn-danger" action="#{odaController.delete}" value="Delete">
+                        <f:ajax  execute="oda-form" render="oda-form oda-table" />
+                    </h:commandButton>
+
+                </div>
+            </div>
+
+        </h:form>
+
+
+    </div>
+
+</ui:composition>
+
