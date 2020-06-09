@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+        <h:outputStylesheet library="myStyle" name="myStyle.css"/>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body id="register" class="container" >
+
+        <h:form>
+            <h1>Register</h1>
+
+           <br/><br/>
+            User Name : <h:inputText id="yeniuser" value="#{registerController.uname}" validatorMessage="en az 3 en fazla 8" >
+                <f:validateLength minimum="3" maximum="6" />   
+            </h:inputText>
+            <h:message for="yeniuser" style="color: red" />
+            <br/>
+            <br/>
+            password
+            <h:inputSecret id="passad" value="#{registerController.password}" validatorMessage="en az 2 " >
+
+                <f:validateLength minimum="2" maximum="29" />
+
+            </h:inputSecret>
+            <h:message for="passad" style="color: red" />
+            <br/><br/><br/>
+
+            user turu : <h:selectOneMenu value="#{registerController.userTuru}" required="true" >
+                <f:selectItem itemLabel="Admin" itemValue="Admin"/>
+                <f:selectItem itemLabel="User" itemValue="User"/>
+            </h:selectOneMenu>
+            <br/><br/><br/>
+            <h:commandButton  class="btn btn-primary" value="Create" action="#{registerController.create}"/><br/><br/><br/>
+        </h:form>
+        <h:form>
+            <h:commandButton class="btn btn-outline-primary" action="/index?faces-redirect=true" value="index"/>
+            <h:commandButton class="btn btn-outline-secondary" action="/login?faces-redirect=true" value="login"/>
+        </h:form> 
+    </h:body>
+</html>
+

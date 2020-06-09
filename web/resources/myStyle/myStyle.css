@@ -1,0 +1,89 @@
+
+#warp{
+    margin: 0 auto ;
+    text-align: center;
+
+
+
+}
+#backgroundtalep
+{
+    background-color: #b1dfbb;
+}
+#backgroundhaki
+{
+    background-color: #cccccc;
+}
+#pp {
+    padding-top:  150px ;
+
+    color: red ;
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+} 
+
+#secret{
+    background-color: #B0A3D1 ;
+}
+#backgrounimg
+{
+    background-image: url("1221.jpg");
+    background-color: #cccccc;
+}
+#nheader
+{
+    background-color: black ;
+    padding: 25px;
+
+}
+h1{
+    color: black;
+    background-color: white ;
+
+}
+#npar
+{
+    margin: 0 auto ;
+    text-align: center;
+
+    padding: 100px;
+}
+#footer
+{
+    padding: 75px;
+    margin: 0 auto;
+
+    text-align: center;
+
+
+}
+h2{
+    padding: 40px;
+
+}
+
+#register
+{
+
+    background-color: #A4FFD5;
+    margin: 0 auto ;
+    text-align: center;
+}
+
+#ana
+{
+    background-color: #f5c6cb;
+    margin: 0 auto ;
+    text-align: center;
+}
+#confirm
+{
+    padding: 100px;
+    background-color: #B0A3D1;
+    margin: 0 auto ;
+    text-align: center;
+}

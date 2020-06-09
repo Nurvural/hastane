@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <div class="col-md-7">
+        <h:form id="doktor-form">
+            <div class="form-group">
+                <label for="selectedBolum">BOLUM</label>
+                <h:selectOneMenu styleClass="custom-select" id="selectedBolum" value="#{doktorController.doktor.bolum}" converter="bolumConverter">
+                    <f:selectItems value="#{doktorController.bolumList}" var="bolum" itemValue="#{bolum}" itemLabel="#{bolum.bolum_name}" />
+                </h:selectOneMenu>
+            </div>
+            <div class="form-group">
+                <label for="inputName">Name</label>
+                <h:inputText styleClass="form-control" value="#{doktorController.doktor.doktor_name}"  validator="#{doktorController.validate}" />
+                <h:message for="inputName" style="color: #B0A3D1" />
+            </div>
+            <div class="form-group">
+                <label for="inputSurname">Surname</label>
+                <h:inputText styleClass="form-control" value="#{doktorController.doktor.doktor_surname}"  validator="#{doktorController.validate}" />
+                <h:message for="inputSurname" style="color: #B0A3D1" />
+            </div>
+            <div class="form-group">
+                <label for="inputSalary">salary</label>
+                <h:inputTextarea styleClass="form-control" value="#{doktorController.doktor.salary}"  validator="#{doktorController.validate}" />
+                <h:message for="inputSalary" style="color: #B0A3D1" />
+            </div>
+            <div class="form-group">
+                <label for="inputturu">Turu</label>
+                <h:inputText styleClass="form-control" value="#{doktorController.doktor.turu}"  validator="#{doktorController.validate}" />
+                <h:message for="inputturu" style="color: #B0A3D1" />
+            </div>
+            <div class="form-group">
+                <div class="btn-group">
+                    <h:commandButton rendered="#{loginController.user.c != 0}" styleClass="btn btn-primary" action="#{doktorController.create}" value="Create">
+                        <f:ajax  execute="doktor-form" render="doktor-form doktor-table" />
+                    </h:commandButton>
+                    <h:commandButton rendered="#{loginController.user.u != 0}" styleClass="btn btn-info" action="#{doktorController.update}" value="Update">
+                        <f:ajax  execute="doktor-form" render="doktor-form doktor-table" />
+                    </h:commandButton>
+                    <h:commandButton rendered="#{loginController.user.r != 0}" styleClass="btn btn-secondary" value="Clear form" action="#{doktorController.clearForm}">
+                        <f:ajax execute="@this" render="doktor-form"/>
+                    </h:commandButton>
+                    <h:commandButton rendered="#{loginController.user.d != 0}" styleClass="btn btn-danger" action="#{doktorController.delete}" value="Delete">
+                        <f:ajax  execute="doktor-form" render="doktor-form doktor-table" />
+                    </h:commandButton>
+
+                </div>
+            </div>
+
+        </h:form>
+
+
+    </div>
+
+</ui:composition>
+

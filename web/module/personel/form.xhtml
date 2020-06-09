@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <div class="col-md-5">
+        <h:form id="personel-form">
+            <div class="form-group">
+                <h:inputHidden value="#{personelController.personel.idpersonel}" />
+                <div class="form-group">
+                    <label for="inputName">Personel Name</label>
+                    <h:inputText styleClass="form-control" value="#{personelController.personel.personel_name}"  validator="#{personelController.validate}" />
+                    <h:message for="inputName" style="color: #B0A3D1" />
+
+                </div>
+                <div class="form-group">
+                    <label for="inputSurname">Personel Surname</label>
+                    <h:inputText styleClass="form-control" value="#{personelController.personel.personel_surname}"  validator="#{personelController.validate}" />
+                    <h:message for="inputSurname" style="color: #B0A3D1" />
+
+                </div>
+                <div class="form-group">
+                    <label for="inputTuru">Personel turu</label>
+                    <h:inputText styleClass="form-control" value="#{personelController.personel.personel_turu}"  validator="#{personelController.validate}" />
+                    <h:message for="inputturu" style="color: #B0A3D1" />
+
+                </div>
+                <div class="form-group">
+                    <label for="inputsalary">Personel Salary</label>
+                    <h:inputText styleClass="form-control" value="#{personelController.personel.personel_salary}"  validator="#{personelController.validate}" />
+                    <h:message for="inputSalary" style="color: #B0A3D1" />
+
+                </div>
+                <div class="form-group">
+                    <label for="inputTc">Personel TCno</label>
+                    <h:inputText styleClass="form-control" value="#{personelController.personel.personel_tcno}"  />
+                    <h:message for="inputTc" style="color: #B0A3D1" />
+
+                </div>
+            </div>
+            <div class="form-group">
+                <h:commandButton rendered="#{loginController.user.c != 0}" styleClass="btn btn-warning" value="Update" action="#{personelController.update}">
+                    <f:ajax  execute="personel-form" render="personel-form personel-table" />
+                </h:commandButton>
+
+                <h:commandButton rendered="#{loginController.user.u != 0}" styleClass="btn btn-info" value="Create" action="#{personelController.create}">
+                    <f:ajax  execute="personel-form" render="personel-form personel-table" />
+                </h:commandButton>
+                <h:commandButton rendered="#{loginController.user.r != 0}" styleClass="btn btn-secondary" value="Clear form" action="#{personelController.clearForm}">
+                    <f:ajax execute="@this" render="personel-form"/>
+                </h:commandButton>
+                <h:commandButton rendered="#{loginController.user.d != 0}" styleClass="btn btn-info" value="Delete" action="#{personelController.delete}">
+                    <f:ajax  execute="@this" render="personel-form personel-table" />
+                </h:commandButton>
+
+
+            </div>
+        </h:form>
+    </div>
+
+</ui:composition>
+
