@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <div class="col-md-7">
+        <h:form id="hasta-form">
+            <div class="form-group">
+                <h:inputHidden value="#{hastaController.hasta.idhasta}" />
+                <div class="form-group">
+                    <label for="inputName">Hasta Name</label>
+                    <h:inputText styleClass="form-control" value="#{hastaController.hasta.hasta_name}"  validator="#{hastaController.validate}" />
+                    <h:message for="inputName" style="color: #B0A3D1" />
+                </div>
+                <div class="form-group">
+                    <label for="inputSurname">Hasta Surname</label>
+                    <h:inputText styleClass="form-control" value="#{hastaController.hasta.hasta_surname}"  validator="#{hastaController.validate}" />
+                    <h:message for="inputSurname" style="color: #B0A3D1" />
+                </div>
+                <div class="form-group">
+                    <label for="inputAdres">Adres</label>
+                    <h:inputText styleClass="form-control" value="#{hastaController.hasta.address}"  validator="#{hastaController.validate}" />
+                    <h:message for="inputAdres" style="color: #B0A3D1" />
+                </div>
+                <div class="form-group">
+                    <label for="inputtc">TC</label>
+                    <h:inputText styleClass="form-control" value="#{hastaController.hasta.tcno}"  validator="#{hastaController.validate}" />
+                    <h:message for="inputtc" style="color: #B0A3D1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <h:commandButton rendered="#{loginController.user.c != 0}" styleClass="btn btn-info" value="Create" action="#{hastaController.create}">
+                    <f:ajax  execute="hasta-form" render="hasta-form hasta-table" />
+                </h:commandButton>
+                <h:commandButton rendered="#{loginController.user.u != 0}" styleClass="btn btn-warning" value="Update" action="#{hastaController.update}">
+                    <f:ajax  execute="hasta-form" render="hasta-form hasta-table" />
+                </h:commandButton>
+
+                <h:commandButton rendered="#{loginController.user.r != 0}" styleClass="btn btn-secondary" value="Clear form" action="#{hastaController.clearForm}">
+                    <f:ajax execute="@this" render="hasta-form"/>
+                </h:commandButton>
+                <h:commandButton  rendered="#{loginController.user.d != 0}" styleClass="btn btn-outline-dark" value="Delete" action="#{hastaController.delete}">
+                    <f:ajax  execute="@this" render="hasta-form hasta-table" />
+                </h:commandButton>
+
+            </div>
+        </h:form>
+
+    </div>
+
+
+</ui:composition>
+
