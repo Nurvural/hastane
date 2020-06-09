@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <div class="col-md-7">
+        <h:form id="kayit-table">
+
+            <h:dataTable  styleClass="table table-bordered table-dark" value="#{kayitController.kayitList}" var="kayit">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:commandLink action="#{kayitController.updateForm(kayit)}" value="#{kayit.idkayit}">
+                        <f:ajax  execute="@this" render="kayit-form" />
+                    </h:commandLink>
+
+                </h:column>
+                <h:column>
+                    <f:facet name="header">NAME</f:facet>
+                        #{kayit.kayit_name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">SURNAME</f:facet>
+                        #{kayit.kayit_surname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">KAYIT NO</f:facet>
+                        #{kayit.kayitno}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">RANDEVU</f:facet>
+                        #{kayit.randevu}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">RESEPSİYON</f:facet>
+                        #{kayit.resepsiyon.resepsiyon_name}
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+    </div>
+
+</ui:composition>
+

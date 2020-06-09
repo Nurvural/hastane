@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <div class="col-md-7">
+        <h:form id="resepsiyon-table">
+            
+            <h:dataTable  styleClass="table table-bordered table-dark" value="#{resepsiyonController.resepsiyonList}" var="resepsiyon">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{resepsiyon.idresepsiyon}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">NAME</f:facet>
+                    <h:commandLink action="#{resepsiyonController.updateForm(resepsiyon)}" value="#{resepsiyon.resepsiyon_name}">
+                        <f:ajax  execute="@this" render="resepsiyon-form" />
+                    </h:commandLink>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">NUMBER</f:facet>
+                        #{resepsiyon.resepsiyon_number}
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+    </div>
+</ui:composition>
+
